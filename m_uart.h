@@ -14,7 +14,7 @@
 #define _UART_SETTINGS_VIEW 0	// 1 for Setting View Enable, 0 for Setting View Disable
 
 #define _NO_OF_DATA_BITS 8	// 8 for EIGHT Bits , 9 for NINE Bits
-#define _PARITY	0			// 0 For EVEN , 1 for odd
+#define _PARITY	0		// 0 For EVEN , 1 for odd
 #define _NO_OF_STOP_BITS 1	// 1 For ONE Stop bit , 2 for TWO stop bits
 #define _DOUBLE_SPEED 0		// 1 For DUBLE SPEED ENABLE, 0 For DOUBLE SPEED DISABLE
 #define _UART_RECIEVE_INTERRUPT 1	// 1 For Enable, 0 For Disable
