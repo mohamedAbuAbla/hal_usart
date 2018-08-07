@@ -29,12 +29,8 @@ static struct
 }Interrupted_Transmit_Array_Struct;
 
 
-
-
-
-
 void USART_Init( uint16_t ubrr)
-{
+{	
 	Interrupted_Transmit_Array_Struct.block=0;
 	/* Set baud rate */
 	UBRRH = (unsigned char)(ubrr>>8);
@@ -47,7 +43,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRB |= (1<<RXCIE);
 		sei();
 			#if (_UART_SETTINGS_VIEW ==1)
-				#error "UART RECIEVE COMPLETE INTERRUPT ENABLED"
+				# warning "UART RECIEVE COMPLETE INTERRUPT ENABLED"
 			#endif
 	
 	#endif
@@ -57,7 +53,7 @@ void USART_Init( uint16_t ubrr)
 	UCSRB |= (1<<UDRIE);
 	sei();
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART TRANSMIT INTERRUPT ENABLED"
+			# warning "UART TRANSMIT INTERRUPT ENABLED"
 		#endif
 	
 	#endif
@@ -67,7 +63,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRA |= (1<<U2X);
 		
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART DOUBLE SPEED ENABLED"
+			# warning "UART DOUBLE SPEED ENABLED"
 		#endif
 		
 	#endif
@@ -77,7 +73,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRA &= ~(1<<U2X);
 		
 		#if (_UART_SETTINGS_VIEW == 1)
-			#error "UART DOUBLE SPEED DISABLED"
+			# warning "UART DOUBLE SPEED DISABLED"
 		#endif
 		
 	#endif
@@ -87,7 +83,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC |= (1<<URSEL)|(1<<UCSZ0)|(1<<UCSZ1);
 		
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART 8 DATA BITS SET"
+			# warning "UART 8 DATA BITS SET"
 		#endif
 		
 	#endif	
@@ -97,7 +93,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC |= (1<<URSEL)|(1<<UCSZ0)|(1<<UCSZ1)|(1<<UCSZ2);	
 
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART 9 DATA BITS SET"
+			# warning "UART 9 DATA BITS SET"
 		#endif
 
 	#endif
@@ -107,7 +103,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC |= (1<<URSEL)|(1<<UPM1);
 
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART EVEN PARITY SET"
+			# warning "UART EVEN PARITY SET"
 		#endif
 
 	#endif
@@ -117,7 +113,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC |=(1<<URSEL)|(1<<UPM1)|(1<<UPM0);
 
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART ODD PARITY SET"
+			# warning "UART ODD PARITY SET"
 		#endif
 
 	#endif
@@ -128,7 +124,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC &= ~(1<<USBS);
 		
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART 1 STOP BITS SET"
+			# warning "UART 1 STOP BITS SET"
 		#endif
 			
 	#endif
@@ -138,7 +134,7 @@ void USART_Init( uint16_t ubrr)
 		UCSRC |= (1<<URSEL)|(1<<USBS);
 		
 		#if (_UART_SETTINGS_VIEW ==1)
-			#error "UART 2 STOP BITS SET"
+			# warning "UART 2 STOP BITS SET"
 		#endif
 		
 	#endif
